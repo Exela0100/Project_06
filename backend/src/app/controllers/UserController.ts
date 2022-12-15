@@ -56,8 +56,6 @@ export class UserController {
 			let user = await UserModel.findOne({email})
 			let passwordSecurity:any = await Service.Security.PasswordDecrypt(user.password, password, user.salt)
 
-			console.log(user)
-
 			// --- Check password
 			if(passwordSecurity.type) {
 				res.status(200).json({

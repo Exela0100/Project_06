@@ -70,7 +70,7 @@ export class SauceController {
 		SauceModel.findOne({_id:req.params.id})
 			.then((dataSauce:any) => {
 				let imageURI = dataSauce.imageUrl.split('/images/')[1]
-				fs.unlink(`image/${imageURI}`, () => {
+				fs.unlink(`images/${imageURI}`, () => {
 					SauceModel.deleteOne({_id:req.params.id})
 						.then(() => res.status(200).json(  {message: 'La sauce a été supprimé.'}))
 						.catch((err:any) => res.status(400).json({message: err}))

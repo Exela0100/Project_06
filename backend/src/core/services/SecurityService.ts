@@ -46,9 +46,6 @@ export class SecurityService {
 		if(id) {
 			// --- Select user
 			let user = await UserModel.findOne({_id:id})
-			console.log(user)
-			console.log('Auth', user._id.toString(), id)
-
 
 			// --- Check user
 			if(user._id.toString() === id) {

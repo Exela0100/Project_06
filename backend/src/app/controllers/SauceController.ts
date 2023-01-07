@@ -94,7 +94,7 @@ export class SauceController {
 		}else {
 			// --- Reset like or dislike
 			SauceModel.findOne({_id: req.params.id})
-				.then((data:any) => {
+				.then((data:Record<string, string|number|any>) => {
 					if (data.usersLiked.includes(req.body.userId)) {
 						// --- Reset like
 						SauceModel.updateOne({ _id: req.params.id }, { $pull: { usersLiked: req.body.userId }, $inc: { likes: -1 } })
